@@ -1,0 +1,31 @@
+{
+  "name": "rsschool-minigame",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000r\u0000s\u0000s\u0000c\u0000h\u0000o\u0000o\u0000l\u0000-\u0000m\u0000i\u0000n\u0000i\u0000g\u0000a\u0000m\u0000e\u0000s\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkr-sof/rsschool-minigames.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mkr-sof/rsschool-minigames/issues"
+  },
+  "homepage": "https://github.com/mkr-sof/rsschool-minigames#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.11.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.12.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.5.1",
+    "prettier": "^3.9.8",
+    "sass": "^1.104.1",
+    "typescript-eslint": "^8.70.0"
+  }
+}
