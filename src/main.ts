@@ -1,11 +1,8 @@
-import "./styles/main.scss";
+import './styles/main.scss';
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-<section id="center">
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+<section>
   <p><strong>MiniGames</strong></p>
  
 </section>
-
-<div class="ticks"></div>
-<section id="spacer"></section>
 `;
