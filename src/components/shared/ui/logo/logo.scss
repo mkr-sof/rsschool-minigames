@@ -1,0 +1,33 @@
+@use '../../../../styles/abstracts' as *;
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: $size-1;
+  text-decoration: none;
+
+  &__icon {
+    width: $size-4;
+    height: $size-4;
+    border: $border-thick solid currentColor;
+    border-radius: $corner-small;
+  }
+
+  &__text {
+    font-size: $font-size-headline-medium;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-none;
+  }
+
+  &--on-light {
+    color: $color-on-primary;
+  }
+
+  &--on-dark {
+    color: $color-white;
+
+    .logo__icon {
+      background: $color-white;
+    }
+  }
+}

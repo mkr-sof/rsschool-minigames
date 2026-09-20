@@ -1,0 +1,161 @@
+@use '../../../styles/abstracts' as *;
+
+$slide-width: 288px;
+$slide-width-active: 816px;
+$slide-height: 384px;
+
+$slide-width-tablet: 200px;
+$slide-width-active-tablet: 480px;
+$slide-height-tablet: 296px;
+
+$slide-width-mobile: 120px;
+$slide-width-active-mobile: 232px;
+$slide-height-mobile: 216px;
+
+$card-overlay: rgba($color-black, 0.8);
+
+.slider {
+  @include container;
+  padding-block: $size-5;
+
+  @include tablet-down {
+    padding-block: $size-3;
+  }
+
+  @include mobile-down {
+    padding-block: $size-2;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $size-5;
+
+    @include tablet-down {
+      margin-bottom: $size-3;
+    }
+
+    @include mobile-down {
+      margin-bottom: $size-2;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    gap: $size-2;
+
+    @include mobile-down {
+      display: none;
+    }
+  }
+
+  &__button {
+    @include flex-center;
+    width: $size-6;
+    height: $size-6;
+    padding: 0;
+    border: $border-thick solid $color-on-primary;
+    border-radius: $corner-full;
+    background: $color-bg;
+    cursor: pointer;
+
+    &--next {
+      background: $color-primary;
+    }
+
+    @include hover {
+      background: $color-surface;
+    }
+  }
+
+  &__track {
+    display: flex;
+    justify-content: center;
+    gap: $size-2;
+    margin: 0 0 (-$size-1);
+    padding: 0 $size-1 $size-1 0;
+    overflow: hidden;
+    list-style: none;
+
+    @include tablet-down {
+      gap: $size-1;
+    }
+  }
+
+  &__slide {
+    flex: 0 0 $slide-width;
+    height: $slide-height;
+
+    &--active {
+      flex-basis: $slide-width-active;
+    }
+
+    @include tablet-down {
+      flex-basis: $slide-width-tablet;
+      height: $slide-height-tablet;
+
+      &--active {
+        flex-basis: $slide-width-active-tablet;
+      }
+    }
+
+    @include mobile-down {
+      flex-basis: $slide-width-mobile;
+      height: $slide-height-mobile;
+
+      &--active {
+        flex-basis: $slide-width-active-mobile;
+      }
+    }
+  }
+}
+
+.game-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: $border-thick solid $color-on-primary;
+  border-radius: $corner-large;
+  background: $color-on-primary;
+  box-shadow: $shadow-level-1;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    position: absolute;
+    inset: auto 0 0;
+    padding: $size-2;
+    background: linear-gradient(to top, $card-overlay, transparent);
+    color: $color-white;
+  }
+
+  &__title {
+    margin: 0;
+    overflow: hidden;
+    font-size: $font-size-body-medium;
+    font-weight: $font-weight-bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    margin: $size-1 0 0;
+    font-size: $font-size-label-large;
+    font-weight: $font-weight-medium;
+  }
+
+  &__rating,
+  &__likes {
+    display: inline-flex;
+    align-items: center;
+    gap: $size-05;
+  }
+}

@@ -1,0 +1,82 @@
+@use '../../styles/abstracts' as *;
+
+$hero-overlay: rgba($color-on-primary, 0.6);
+$hero-card-max-width: 640px;
+$hero-card-max-width-tablet: 504px;
+
+.hero {
+  padding-block: $size-14;
+  background:
+    linear-gradient($hero-overlay, $hero-overlay),
+    url('../../assets/images/hero-bg.jpg') center / cover no-repeat;
+
+  @include tablet-down {
+    padding-block: $size-10;
+  }
+
+  @include mobile-down {
+    padding-block: $size-7;
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__card {
+    max-width: $hero-card-max-width;
+    padding: $size-6;
+    border: $border-thick solid $color-on-primary;
+    border-radius: $corner-extra-large;
+    background: $color-bg;
+    box-shadow: $shadow-level-3;
+
+    @include tablet-down {
+      max-width: $hero-card-max-width-tablet;
+      padding: $size-3;
+    }
+
+    @include mobile-down {
+      max-width: none;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: $color-on-primary;
+    font-size: $font-size-display-large;
+    font-weight: $font-weight-extra-bold;
+    line-height: $line-height-tight;
+
+    @include tablet-down {
+      font-size: $font-size-display-medium;
+    }
+
+    @include mobile-down {
+      font-size: $font-size-display-small;
+    }
+  }
+
+  &__text-extra {
+    @include mobile-down {
+      display: none;
+    }
+  }
+
+  &__text {
+    margin: $size-2 0 $size-4;
+    color: $color-on-bg;
+    font-size: $font-size-body-large;
+
+    @include tablet-down {
+      margin-bottom: $size-3;
+      font-size: $font-size-body-small;
+    }
+  }
+
+  .button {
+    @include tablet-down {
+      padding: $btn-small-padding;
+      font-size: $font-size-label-large;
+    }
+  }
+}

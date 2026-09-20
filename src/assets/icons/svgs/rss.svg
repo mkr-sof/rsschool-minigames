@@ -1,0 +1,26 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+>
+  <circle
+    cx="5"
+    cy="19"
+    r="2"
+    fill="#FFFFFF"
+  />
+
+  <path
+    d="M5 12C8.866 12 12 15.134 12 19"
+    stroke="#FFFFFF"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+
+  <path
+    d="M5 5C12.732 5 19 11.268 19 19"
+    stroke="#FFFFFF"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+</svg>

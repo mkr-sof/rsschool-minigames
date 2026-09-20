@@ -1,0 +1,212 @@
+@use 'sass:list';
+@use '../../styles/abstracts' as *;
+
+$avatar-colors: (
+  $color-primary,
+  $color-avatar-random-2,
+  $color-avatar-random-3,
+  $color-avatar-random-4,
+  $color-avatar-random-5
+);
+
+.leaderboard {
+  @include container;
+  padding-block: $size-5;
+
+  @include tablet-down {
+    padding-block: $size-3;
+  }
+
+  @include mobile-down {
+    padding-block: $size-2;
+  }
+
+  &__table-wrap {
+    margin-top: $size-5;
+    overflow: hidden;
+    border: $border-thick solid $color-on-primary;
+    border-radius: $corner-large;
+    box-shadow: $shadow-level-2;
+
+    @include tablet-down {
+      margin-top: $size-3;
+    }
+
+    @include mobile-down {
+      margin-top: $size-2;
+    }
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  &__cell {
+    height: $size-9;
+    padding: 0 $size-2;
+    color: $color-on-primary;
+    font-size: $font-size-body-small;
+    font-weight: $font-weight-bold;
+    text-align: center;
+
+    @include tablet-down {
+      height: $size-7;
+      padding-inline: $size-1;
+      font-size: $font-size-label-medium;
+    }
+
+    &--rank {
+      width: 7%;
+    }
+
+    &--player {
+      width: 18%;
+      padding-left: $size-1;
+      overflow: hidden;
+      text-align: left;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &--games {
+      width: 19%;
+    }
+
+    &--score {
+      width: 18%;
+    }
+
+    &--streak {
+      width: 19%;
+    }
+
+    &--favorite {
+      width: 19%;
+    }
+  }
+
+  thead &__cell {
+    height: $size-8;
+    background: $color-tertiary;
+    color: $color-white;
+    font-size: $font-size-label-large;
+    text-align: center;
+    text-transform: uppercase;
+
+    @include tablet-down {
+      height: $size-6;
+      font-size: $font-size-label-medium;
+    }
+  }
+
+  &__row {
+    background: $color-bg;
+
+    &:nth-child(even) {
+      background: $color-white;
+    }
+
+    & + & {
+      border-top: $border-thin solid $color-outline;
+    }
+
+    &:first-child .leaderboard__cell--rank {
+      color: $color-primary;
+    }
+
+    @each $color in $avatar-colors {
+      &:nth-child(#{list.index($avatar-colors, $color)}) .avatar {
+        background: $color;
+      }
+    }
+  }
+
+  &__player-name {
+    vertical-align: middle;
+  }
+
+  @include tablet-down {
+    &__row:nth-child(n + 4) {
+      display: none;
+    }
+
+    &__cell--favorite {
+      display: none;
+    }
+
+    &__cell--rank {
+      width: 14%;
+    }
+
+    &__cell--player {
+      width: 28%;
+    }
+
+    &__cell--games {
+      width: 18%;
+    }
+
+    &__cell--score,
+    &__cell--streak {
+      width: 20%;
+    }
+  }
+
+  @include mobile-down {
+    thead &__cell {
+      height: $size-5;
+    }
+
+    &__cell--games {
+      display: none;
+    }
+
+    &__cell--rank {
+      width: 16%;
+    }
+
+    &__cell--player {
+      width: 36%;
+    }
+
+    &__cell--score,
+    &__cell--streak {
+      width: 24%;
+    }
+  }
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $size-5;
+  height: $size-5;
+  margin-right: $size-1;
+  border: $border-thick solid $color-on-primary;
+  border-radius: $corner-full;
+  font-size: $font-size-label-medium;
+  font-weight: $font-weight-bold;
+  vertical-align: middle;
+
+  @include tablet-down {
+    width: $size-4;
+    height: $size-4;
+    margin-right: $size-1;
+    font-size: $font-size-label-small;
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: $size-05 $size-1;
+  border: $border-thin solid $color-on-primary;
+  border-radius: $corner-full;
+  background: $color-white;
+  font-size: $font-size-label-medium;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-none;
+  white-space: nowrap;
+}
