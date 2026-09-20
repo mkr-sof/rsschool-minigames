@@ -1,0 +1,185 @@
+@use '../../styles/abstracts' as *;
+
+.header {
+  position: relative;
+  background: $color-bg;
+  border-bottom: $border-thin solid $color-on-primary;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: $size-4;
+    max-width: $container-max-width;
+    height: $size-11;
+    margin-inline: auto;
+    padding-inline: $size-10;
+
+    @include tablet-down {
+      height: $size-10;
+      padding-inline: $page-padding-tablet;
+    }
+
+    @include mobile-down {
+      height: $size-7;
+      padding-inline: $page-padding-mobile;
+    }
+  }
+
+  &__nav {
+    margin-left: auto;
+
+    @include tablet-down {
+      display: none;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $size-2;
+
+    @include tablet-down {
+      margin-left: auto;
+
+      .button--outline {
+        display: none;
+      }
+    }
+
+    @include mobile-down {
+      display: none;
+    }
+  }
+
+  &__burger,
+  .mobile-menu__close {
+    @include flex-center;
+    padding: $btn-icon-padding;
+    border: $border-thick solid currentColor;
+    border-radius: $corner-small;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  &__burger {
+    display: none;
+    color: $color-on-primary;
+
+    @include tablet-down {
+      display: flex;
+    }
+
+    @include mobile-down {
+      margin-left: auto;
+    }
+  }
+
+  &__burger-icon,
+  .mobile-menu__close-icon {
+    display: block;
+    width: $size-3;
+    height: $size-3;
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    gap: $size-5;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    color: $color-on-bg;
+    font-size: $font-size-body-medium;
+    text-decoration: none;
+
+    @include hover {
+      color: $color-on-primary;
+    }
+
+    &[aria-current='page'] {
+      color: $color-on-primary;
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+.mobile-menu {
+  display: none;
+
+  @include tablet-down {
+    &:not([hidden]) {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      padding: 0 $page-padding-tablet $size-5;
+      overflow-y: auto;
+      background: $color-bg-footer;
+      color: $color-white;
+    }
+  }
+
+  @include mobile-down {
+    &:not([hidden]) {
+      padding-inline: $page-padding-mobile;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $size-10;
+
+    @include mobile-down {
+      height: $size-7;
+    }
+  }
+
+  &__nav {
+    margin-top: $size-5;
+
+    .nav__list {
+      flex-direction: column;
+      gap: $size-3;
+    }
+
+    .nav__link {
+      color: $color-on-bg-footer;
+      font-size: $font-size-body-large;
+
+      @include hover {
+        color: $color-white;
+      }
+
+      &[aria-current='page'] {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__actions {
+    display: grid;
+    gap: $size-2;
+    margin-top: auto;
+    padding-top: $size-5;
+
+    .button {
+      width: 100%;
+    }
+
+    .button--outline {
+      border-color: $color-white;
+      color: $color-white;
+
+      @include hover {
+        background: $color-bg-footer-low;
+      }
+    }
+  }
+}

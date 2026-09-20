@@ -1,0 +1,154 @@
+@use '../../styles/abstracts' as *;
+
+$footer-description-max-width: 400px;
+
+.footer {
+  background: $color-bg-footer;
+  color: $color-on-bg-footer;
+  font-size: $font-size-body-small;
+
+  &__inner {
+    @include container;
+    padding-block: $size-5;
+  }
+
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $size-10;
+    padding-bottom: $size-8;
+    border-bottom: $border-thin solid $color-bg-footer-low;
+
+    @include tablet-down {
+      flex-direction: column;
+      gap: $size-5;
+      padding-bottom: $size-5;
+    }
+  }
+
+  &__description {
+    max-width: $footer-description-max-width;
+    margin: $size-3 0 0;
+
+    @include tablet-down {
+      max-width: none;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: $size-10;
+
+    @include tablet-down {
+      gap: $size-5;
+    }
+
+    @include mobile-down {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $size-4 $size-3;
+      width: 100%;
+    }
+  }
+
+  &__column {
+    @include mobile-down {
+      &:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  &__heading {
+    margin: 0 0 $size-1 + $size-05;
+    color: $color-white;
+    font-size: $font-size-label-extra-large;
+    font-weight: $font-weight-bold;
+  }
+
+  &__list,
+  &__social {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__list {
+    flex-direction: column;
+    gap: $size-1 + $size-05;
+  }
+
+  &__social {
+    gap: $size-2;
+  }
+
+  &__link,
+  &__credit {
+    color: inherit;
+    text-decoration: none;
+
+    @include hover {
+      color: $color-white;
+    }
+  }
+
+  &__credit {
+    display: inline-flex;
+    align-items: center;
+    gap: $size-1;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: $size-3;
+
+    @include tablet-down {
+      font-size: $font-size-label-medium;
+    }
+
+    @include mobile-down {
+      flex-wrap: wrap;
+      gap: $size-2 $size-3;
+      justify-content: flex-start;
+    }
+  }
+
+  &__copyright,
+  &__note {
+    margin: 0;
+  }
+
+  &__copyright {
+    @include mobile-down {
+      flex-basis: 100%;
+    }
+  }
+
+  &__note {
+    @include mobile-down {
+      display: none;
+    }
+  }
+}
+
+.social-link {
+  @include flex-center;
+  width: $size-5;
+  height: $size-5;
+  border-radius: $corner-full;
+  background: $color-bg-footer-low;
+  color: $color-white;
+  &__icon {
+    display: block;
+    width: $size-3;
+    height: $size-3;
+  }
+
+  @include hover {
+    background: $color-bg-footer-lowest;
+  }
+}

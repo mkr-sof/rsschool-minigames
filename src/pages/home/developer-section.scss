@@ -1,0 +1,105 @@
+@use '../../styles/abstracts' as *;
+
+// Image and card share the row in the ratio of the design (680px : 960px).
+$developer-columns: minmax(0, 17fr) minmax(0, 24fr);
+$developer-image-height: 480px;
+$developer-image-height-tablet: 312px;
+$developer-image-height-mobile: 240px;
+$developer-text-max-width: 33em;
+$developer-shadow: 0 $size-1 $size-3 rgba($color-black, 0.1);
+
+.developer {
+  @include container;
+  display: grid;
+  grid-template-columns: $developer-columns;
+  align-items: center;
+  gap: $size-5;
+  padding-block: $size-5;
+
+  @include tablet-down {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: $size-3;
+    padding-block: $size-3;
+  }
+
+  @include mobile-down {
+    gap: $size-2;
+    padding-block: $size-2;
+  }
+
+  &__image {
+    width: 100%;
+    height: $developer-image-height;
+    border-radius: $corner-extra-large;
+    object-fit: cover;
+
+    @include tablet-down {
+      height: $developer-image-height-tablet;
+    }
+
+    @include mobile-down {
+      height: $developer-image-height-mobile;
+    }
+  }
+
+  &__card {
+    padding: $size-5;
+    border: $border-thick solid $color-on-primary;
+    border-radius: $corner-extra-large;
+    background: $color-white;
+    box-shadow: $developer-shadow;
+
+    @include tablet-down {
+      padding: $size-3;
+    }
+  }
+
+  &__title {
+    margin: 0 0 $size-3;
+    color: $color-on-primary;
+    font-size: $font-size-headline-large;
+    font-weight: $font-weight-extra-bold;
+    line-height: $line-height-tight;
+
+    @include tablet-down {
+      font-size: $font-size-headline-medium;
+    }
+  }
+
+  &__text {
+    max-width: $developer-text-max-width;
+    margin: 0 0 $size-4;
+    color: $color-on-bg;
+    font-size: $font-size-body-large;
+
+    @include tablet-down {
+      margin-bottom: $size-3;
+      font-size: $font-size-body-small;
+    }
+  }
+
+  .button {
+    box-shadow: $developer-shadow;
+
+    @include tablet-down {
+      padding: $btn-small-padding;
+      font-size: $font-size-label-large;
+    }
+  }
+
+  &__contact {
+    margin: $size-3 0 0;
+    color: $color-on-bg-low;
+    font-size: $font-size-label-large;
+
+    @include tablet-down {
+      margin-top: $size-2;
+      font-size: $font-size-label-medium;
+    }
+  }
+
+  &__email {
+    color: inherit;
+  }
+}

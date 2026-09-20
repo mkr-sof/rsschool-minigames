@@ -1,0 +1,51 @@
+@use '../../../../styles/abstracts' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $size-1;
+  border: $border-thick solid $color-on-primary;
+  border-radius: $corner-small;
+  color: $color-on-primary;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-none;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: $border-thick solid $color-tertiary;
+    outline-offset: $border-thick;
+  }
+
+  &--primary {
+    background: $color-primary;
+
+    @include hover {
+      background: $color-primary-high;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+
+    @include hover {
+      background: $color-surface;
+    }
+  }
+
+  &--small {
+    padding: $btn-small-padding;
+    font-size: $font-size-label-large;
+  }
+
+  &--medium {
+    padding: $btn-medium-padding;
+    font-size: $font-size-label-extra-large;
+  }
+
+  &--large {
+    padding: $btn-large-padding;
+    font-size: $font-size-label-extra-large;
+  }
+}

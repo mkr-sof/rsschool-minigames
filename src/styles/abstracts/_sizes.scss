@@ -17,6 +17,12 @@ $size-13: 104px;
 $size-14: 112px;
 $size-15: 120px;
 
+$container-max-width: 1920px;
+
+$page-padding-desktop: $size-3; // 24px
+$page-padding-tablet: $size-2; // 16px
+$page-padding-mobile: $size-1; // 8px
+
 $corner-extra-small: 4px;
 $corner-small: 8px;
 $corner-medium: 12px;
@@ -32,3 +38,7 @@ $btn-icon-padding: $size-1; // 8px
 $shadow-level-1: 4px 4px 0 $color-on-primary;
 $shadow-level-2: 6px 6px 0 $color-on-primary;
 $shadow-level-3: 8px 8px 0 $color-on-primary;
+
+$border-thin: 1px;
+$border-thick: 2px;
+$shadow-soft: 0 $size-1 $size-3 rgba($color-on-primary, 0.15);
